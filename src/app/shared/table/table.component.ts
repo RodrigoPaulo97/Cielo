@@ -15,7 +15,7 @@ export class TableComponent implements OnInit, OnChanges {
   @ViewChild(MatSort) sort!: MatSort;
   displayedColumns: string[] = []
   dataSource!: MatTableDataSource<any>
-  keyFilterDate?: string
+  keyFilterDate!: string
 
   constructor() { }
 
@@ -24,7 +24,7 @@ export class TableComponent implements OnInit, OnChanges {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.displayedColumns = this.columns.map(c => c.field)
-    this.keyFilterDate = this.columns.find(c => c.filterDate)?.label
+    this.keyFilterDate = this.columns.find(c => c.filterDate)?.field ?? ''
 
   }
 
@@ -45,7 +45,8 @@ export class TableComponent implements OnInit, OnChanges {
       this.dataSource.data = data
       return
     }
+    if (!this.keyFilterDate) return
 
-    this.dataSource.data = data.filter((item) => new Date(item.date) == new Date(dateValue))
+    this.dataSource.data = data.filter((item) => item[this.keyFilterDate]?.split('T')[0] == dateValue)
   }
 }
