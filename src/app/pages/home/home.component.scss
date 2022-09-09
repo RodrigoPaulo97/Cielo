@@ -1,0 +1,30 @@
+.container-fluid {
+    section:nth-child(1) {
+        height: 30vh;
+        display: flex;
+
+    }
+
+    section:nth-child(2) {
+        height: 70vh;
+    }
+
+    section {
+      
+        .card {
+            height: auto;
+            border: none;
+            margin-right: 1em;
+            .card-header {
+                background: #fff;
+                text-align: center;
+            }
+
+            .card-body {
+                padding: 0.5em;
+            }
+        }
+
+
+    }
+}

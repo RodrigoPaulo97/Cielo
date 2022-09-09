@@ -1,0 +1,17 @@
+<div class="container-fluid row">
+    <section>
+        <div class="card" *ngFor="let chart of listChart">
+            <div class="card-header">
+                {{chart.title}}
+            </div>
+            <div class="card-body">
+                <app-chart [lineChartData]="chart.data"></app-chart>
+            </div>
+        </div>
+
+    </section>
+    <section>
+        <app-table [data]="dataSource" [columns]="columns"></app-table>
+    </section>
+
+</div>

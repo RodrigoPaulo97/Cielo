@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  api: 'assets/api/lancamento-conta-legado.json',
   production: false
 };
 
